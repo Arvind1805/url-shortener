@@ -1,0 +1,117 @@
+:root {
+  --primary-color: #3498db;
+  --secondary-color: #2ecc71;
+  --background-color: #f4f7f6;
+  --text-color: #333;
+  --border-color: #ddd;
+  --white: #fff;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; 
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--background-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh; 
+  color: var(--text-color);
+}
+
+.container {
+  background-color: var(--white);
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 450px; 
+  text-align: center;
+}
+
+h1 {
+  color: var(--primary-color);
+  margin-bottom: 25px;
+  font-weight: 700;
+  font-size: 2em;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px; 
+}
+
+label {
+  text-align: left;
+  margin-bottom: 5px;
+  font-weight: 600;
+  color: var(--text-color);
+}
+
+input[type="url"],
+input[type="text"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+}
+
+input[type="url"]:focus,
+input[type="text"]:focus {
+  border-color: var(--primary-color);
+  outline: none; 
+  box-shadow: 0 0 5px rgba(52, 152, 219, 0.3);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: var(--white);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #2980b9; 
+  transform: translateY(-2px); 
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+#list {
+  margin-top: 20px;
+  background-color: aliceblue;
+  padding: 10px;
+  border-radius: 8px;
+  max-height: 200px;
+  overflow-y: auto;
+  text-align: left;
+}
+
+#list li {
+  margin: 5px 0;
+  font-size: 0.95em;
+}
+
+#list a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+#list a:hover {
+  text-decoration: underline;
+}

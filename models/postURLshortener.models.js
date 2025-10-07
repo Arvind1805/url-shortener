@@ -1,17 +1,23 @@
 import  {collection}  from '../app.js';
 
 const postURLshortener = (loadlinks) => async(req,res)=>{
-  const {url,shortCode} = req.body;
-  const result = await collection.findOne({shortCode : shortCode})
+  if(req.user){
+      const {url,shortCode} = req.body;
+      console.log("posting the url");
+      console.log(req.body)
+  const result = await collection.findOne({shortCode,userId : req.user.id})
   if(result){
-    alert("duplicate values not allowed")
+    console.log("duplicate values not allowed")
   }
   else{
-      await collection.insertOne({shortCode : shortCode , url : url})
+      await collection.insertOne({url, shortCode,userId : req.user.id})
       console.log("Data inserted successfully")
+      res.redirect("/")
   }
-
-  res.redirect("/")
+  }
+  else{
+    res.status(404).send("login to continue")
+  }
 }
 
 export default postURLshortener;

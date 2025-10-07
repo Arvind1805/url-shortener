@@ -11,10 +11,15 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "argon2": "^0.43.1",
+    "bcryptjs": "^3.0.2",
+    "cookie-parser": "^1.4.7",
     "dotenv": "^17.2.1",
     "ejs": "^3.1.10",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mongodb": "^6.18.0",
-    "mongoose": "^8.17.0"
+    "mongoose": "^8.17.0",
+    "zod": "^4.0.17"
   }
 }

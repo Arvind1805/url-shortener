@@ -10,20 +10,43 @@
 <body>
   <div class="container">
     <h1>URL Shortener</h1>
+    <% if(user) { %>
+      <h2>Welcome, <%= user.name %> 👋</h2>
+    <% } else { %>
+      <h2>Please log in to continue</h2>
+    <% } %>
+
     <form action="/" method="POST">
       <label for="url">Enter the URL</label>
-      <input type="url" id="url" name = "url" placeholder="e.g., https://www.example.com/long-page" required>
-      <label for="keyword">Enter your keyword (optional)</label>
+      <input type="url" id="url" name="url" placeholder="https://example.com/long-link" required>
+
+      <label for="keyword">Custom keyword (optional)</label>
       <input type="text" id="keyword" name="shortCode" placeholder="e.g., my-short-link">
-      <button type="submit">SUBMIT</button>
+
+      <button type="submit">Generate Short Link</button>
     </form>
-    <ul id="list">
-        <% links.map(({shortCode,url})=>{ %>
-          <li><a href = "<%= url %>" target = "_blank"><%=host%>/<%= shortCode%></a></li>
-      <% }) %>
-    </ul>
+
+    <% if(user){ %>
+      <ul id="list">
+        <% links.map(({shortCode, url, _id}) => { %>
+          <li>
+            <a href="<%= url %>" target="_blank"><%= host %>/<%= shortCode %></a>
+            <span>
+              <a href="/edit/<%= _id %>">✏️ Edit</a> | 
+              <a href="/delete/<%= _id %>">🗑️ Delete</a>
+            </span>
+          </li>
+        <% }) %>
+      </ul>
+    <% } %>
+
+    <div style="margin-top:1.5rem;">
+      <% if (user) { %>
+        <a href="/auth/logout">🚪 Logout</a>
+      <% } else { %>
+        <a href="/auth/login">🔑 Login</a>
+      <% } %>
+    </div>
   </div>
 </body>
-<script>
-</script>
 </html>

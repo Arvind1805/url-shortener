@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Update URL | URL Shortener</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Update Short Link</h1>
+    <h2>Edit your URL and keyword</h2>
+
+    <form action="/edit/<%= dataId %>" method="POST">
+      <label for="url">Enter the URL</label>
+      <input type="url" id="url" name="url" value="<%= url %>" required>
+
+      <label for="keyword">Enter your new keyword</label>
+      <input type="text" id="keyword" name="shortCode" value="<%= shortCode %>">
+
+      <button type="submit">Update</button>
+    </form>
+
+    <p style="margin-top:1rem;">
+      <a href="/">⬅ Back to Dashboard</a>
+    </p>
+  </div>
+</body>
+</html>

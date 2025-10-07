@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register | URL Shortener</title>
+  <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Create Account</h1>
+    <h2>Register to continue</h2>
+
+    <form action="/auth/register" method="POST">
+      <label for="username">Username</label>
+      <input type="text" name="username" required>
+
+      <label for="email">Email</label>
+      <input type="email" name="email" required>
+
+      <label for="password">Password</label>
+      <input type="password" name="password" required>
+
+      <button type="submit">Register</button>
+    </form>
+
+    <p style="margin-top:1rem;">Already registered? <a href="/auth/login">Login</a></p>
+  </div>
+</body>
+</html>

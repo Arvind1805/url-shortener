@@ -12,13 +12,47 @@ export const connectToDB = async () => {
 
   mongoose.set("debug", true);
 
+  // this schema is for storing the url and shortcode 
   const userSchema = new mongoose.Schema({
-    url: { type: String, required: true },
-    shortCode: { type: String, required: true }
-  }, { timestamps: true });
+    url: {
+      type: String,
+      required: true 
+    },
+    shortCode: {
+      type: String, 
+      required: true 
+    },
+    userId : {
+      type : mongoose.Schema.Types.ObjectId,
+      ref : 'user-cred',
+      required : true
+    }
+   },
+   { 
+    timestamps: true 
+   });
 
+  //this schema is for storing user details...
+  const credentialSchema = new mongoose.Schema({
+    username : {
+      type  : String,
+      required : true
+    },
+    email : {
+      type : String,
+      required : true,
+      unique : true
+    },
+    password : {
+      type : String,
+      required : true
+    }
+  })
+
+
+  const credCollection = mongoose.model("user-cred",credentialSchema);
   const collection = mongoose.model("url-link", userSchema);
-  return collection;
+  return {collection, credCollection};
 }
 
                                                            

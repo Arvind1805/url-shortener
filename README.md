@@ -51,28 +51,3 @@ Create a `.env` file in the project root with at least:
    ```
    npm start
    ```
-
-## API endpoints (project-specific)
-- POST /api/shorten
-  - Description: Create a new short URL.
-  - Request body (JSON):
-    {
-      "url": "<original_long_url>",
-      "customAlias": "<optional_custom_alias>"
-    }
-  - Response (example JSON):
-    {
-      "shortUrl": "<BASE_URL>/<code>",
-      "code": "<code>",
-      "originalUrl": "<original_long_url>"
-    }
-
-- GET /api/stats/:code
-  - Description: Return basic stats for a code (view count, createdAt, original URL) if analytics are implemented.
-
-- GET /:code
-  - Description: Redirects to the original URL associated with `code`. Responds with an HTTP redirect (301 or 302).
-
-## Frontend routes 
-- GET / — homepage with a form to create a short URL and a list of recent/owned short URLs
-- GET /:code — access via browser triggers redirect behavior
